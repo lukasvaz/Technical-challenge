@@ -33,7 +33,6 @@ CREATE TABLE IF NOT EXISTS Restocks (
 CREATE TABLE IF NOT EXISTS Inventory (
     id_product BIGINT UNSIGNED PRIMARY KEY,
     quantity INT NOT NULL CHECK (quantity >= 0),
-    _date TIMESTAMP NOT NULL,
     FOREIGN KEY (id_product) REFERENCES Products(id)
 );
 
@@ -44,7 +43,7 @@ AFTER INSERT ON Sales
 FOR EACH ROW
 BEGIN
     UPDATE Inventory
-    SET quantity = quantity - NEW.quantity, _date = NEW._date
+    SET quantity = quantity - NEW.quantity
     WHERE id_product = NEW.id_product;
 END //
 
@@ -52,10 +51,10 @@ CREATE TRIGGER update_inventory_after_restock
 AFTER INSERT ON Restocks
 FOR EACH ROW
 BEGIN
-    INSERT INTO Inventory (id_product, quantity, _date)
-    VALUES (NEW.id_product, NEW.quantity, NEW._date)
+    INSERT INTO Inventory (id_product, quantity)
+    VALUES (NEW.id_product, NEW.quantity)
     ON DUPLICATE KEY UPDATE
-    quantity = quantity + NEW.quantity, _date = NEW._date;
+    quantity = quantity + NEW.quantity;
 END //
 
 DELIMITER ;
