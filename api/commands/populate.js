@@ -2,6 +2,7 @@ import mysql from 'mysql2';
 import dotenv from 'dotenv';
 
 dotenv.config({ path: '../.env' });
+
 function clearDatabase(connection) {
     connection.execute('DELETE FROM Inventory');
     connection.execute('DELETE FROM Sales');
@@ -35,8 +36,7 @@ function populateDatabase(connection) {
             restockDate.setMonth(restockDate.getMonth() - month);
             
             for (let i = 0; i < 5; i++) {
-                var product = Math.floor(Math.random() * 4) + 1;
-                console.log(product)
+                var product = Math.floor(Math.random() * 5) + 1;
                 restocksData.push({
                     id_product: product,
                     quantity: i + 10,
@@ -60,7 +60,7 @@ function populateDatabase(connection) {
             saleDate.setMonth(saleDate.getMonth() - month);
 
             for (let i = 0; i < 5; i++) {
-                var product= Math.floor(Math.random() * 4) + 1
+                var product= Math.floor(Math.random() * 5) + 1
 
                 salesData.push({
                     id_product: product,
@@ -80,7 +80,6 @@ function populateDatabase(connection) {
 
 }
 async function seedDatabase() {
-        console.log()
         const connection = mysql.createConnection({
             host: process.env.DB_HOST,
             user: process.env.DB_USER,
