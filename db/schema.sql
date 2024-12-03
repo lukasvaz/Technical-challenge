@@ -9,7 +9,7 @@ DROP trigger if exists update_inventory_after_restock;
 DROP trigger if exists update_inventory_after_sale;
 
 CREATE TABLE IF NOT EXISTS Products (
-    id BIGINT UNSIGNED  PRIMARY KEY,
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     price INT UNSIGNED NOT NULL
 );
