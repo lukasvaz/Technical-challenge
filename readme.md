@@ -1,5 +1,5 @@
 # Prueba tecnica 
-## Lukas Vasqiez Verdejo
+## Lukas Vasquez Verdejo
 
 ### Correr  el proyecto
 Para correr el proyecto:
