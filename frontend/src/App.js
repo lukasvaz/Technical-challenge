@@ -1,17 +1,15 @@
 import './App.css';
 import InventoryChart from './components/InventoryChart';
-
+import SalesChart from './components/SalesChart';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div style={{ display: 'flex',flexDirection:"column", justifyContent: 'center', alignItems: 'center' }}>
         <h1>Inventario</h1>
         < InventoryChart></InventoryChart>        
 
         <h1>Ventas</h1>
-        
+        < SalesChart></SalesChart>        
       
-      </header>
     </div>
   );
 }

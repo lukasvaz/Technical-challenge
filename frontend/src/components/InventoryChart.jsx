@@ -12,7 +12,6 @@ const InventoryChart = () => {
 
     return (
         <div>
-            <h1>Inventory Chart</h1>
             <table>
                 <thead>
                     <tr>
