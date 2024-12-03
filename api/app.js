@@ -2,13 +2,15 @@ import express from 'express';
 import productRouter from './router/productsRouter.js'; 
 import salesRouter from './router/salesRouter.js'; 
 import inventoryRouter from './router/inventoryRouter.js';
- 
+import restocksRouter from './router/restocksRouter.js';
+
 const app = express();
 const port = 3000;
 app.use(express.json());
 app.use('/products', productRouter);
 app.use('/sales', salesRouter);
 app.use('/inventory', inventoryRouter);
+app.use('/restocks', restocksRouter);
 app.get('/', (_, res) => {
     res.send('api is running');
    
