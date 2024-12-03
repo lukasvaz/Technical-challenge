@@ -1,11 +1,14 @@
 import express from 'express';
-import salesRouter from './router/products.js'; 
+import productRouter from './router/productsRouter.js'; 
+import salesRouter from './router/salesRouter.js'; 
  
 const app = express();
 const port = 3000;
 app.use(express.json());
-app.use('/products', salesRouter);
-app.get('/', (req, res) => {
+app.use('/products', productRouter);
+app.use('/sales', salesRouter);
+
+app.get('/', (_, res) => {
     res.send('api is running');
    
 });
