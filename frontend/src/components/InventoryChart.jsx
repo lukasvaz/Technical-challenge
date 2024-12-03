@@ -4,7 +4,10 @@ const InventoryChart = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
         fetch('http://localhost:3001/inventory')
-            .then(response => response.json()).then(data => console.log(data));
+            .then(response => response.json())
+            .then(data => {setData(data)
+            })
+            .catch(error => console.error('Error fetching data:', error));
     }, []);
 
     return (
@@ -13,7 +16,6 @@ const InventoryChart = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Quantity</th>
                         <th>Price</th>
@@ -22,7 +24,6 @@ const InventoryChart = () => {
                 <tbody>
                     {data.map(item => (
                         <tr key={item.id}>
-                            <td>{item.id}</td>
                             <td>{item.name}</td>
                             <td>{item.quantity}</td>
                             <td>{item.price}</td>

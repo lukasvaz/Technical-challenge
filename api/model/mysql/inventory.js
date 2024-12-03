@@ -22,7 +22,12 @@ class Inventory {
     }
 
     getAllInventory(callback) {
-        const query = 'SELECT * FROM Inventory';
+        const query = `
+            SELECT Products.id,Products.name, Inventory.quantity, Products.price
+            FROM Inventory
+            JOIN Products ON Inventory.id_product = Products.id
+        `;
+        // const query = 'SELECT * FROM Inventory';
         this.connection.query(query, (error, results) => {
             if (error) {
                 return callback(error);
