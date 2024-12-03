@@ -4,9 +4,9 @@ services:
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     ports:
-      - '3307:3306'
+      - '${DB_PORT}:3306'
     expose:
       - '3306'
     volumes:
