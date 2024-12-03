@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS interview;
-USE interview ;
+CREATE DATABASE IF NOT EXISTS technical_challenge;
+USE technical_challenge ;
 DROP table  if exists Product;
 DROP table  if exists Sales;
 DROP table  if exists Restocks;
