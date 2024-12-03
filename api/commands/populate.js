@@ -70,7 +70,7 @@ async function populateDatabase(connection) {
             const randomProduct = productIds[Math.floor(Math.random() * productIds.length)];
             salesData.push({
                 id_product: randomProduct,
-                quantity: i + 1,
+                quantity: (Math.floor(Math.random() * productIds.length))+1,
                 _date: saleDate.toISOString().slice(0, 19).replace('T', ' '),
             });
         }
